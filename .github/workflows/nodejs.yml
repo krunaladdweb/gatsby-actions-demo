@@ -31,3 +31,15 @@ jobs:
       with:
         name: gatsby_demo
         path: public
+    - name: ssh deploy
+      uses: easingthemes/ssh-deploy@v2.1.2
+      with:
+        # Private Key
+        SSH_PRIVATE_KEY: $SSH_KEY_ADDWEB_PROJECTS
+        REMOTE_HOST: addwebprojects.com
+        REMOTE_USER: addweb
+        REMOTE_PORT: 32768
+        # Source directory
+        SOURCE: public
+        # Target directory
+        TARGET: /srv/www/node/gatsby-actions-demo
